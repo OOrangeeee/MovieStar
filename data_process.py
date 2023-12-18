@@ -39,6 +39,10 @@ def solve_data(movies_df, ratings_df, tags_df):
         [movies_ratings_tags_df, genres_split], axis=1
     )  # 将新生成的列与原始数据合并
     movies_ratings_tags_df = movies_ratings_tags_df.drop(columns=["genres"])
+
+    movies_ratings_tags_df["title"] = (
+        movies_ratings_tags_df["title"].astype("category").cat.codes
+    )  # 为电影标题创建唯一的整数编码
     return movies_ratings_tags_df
 
 
