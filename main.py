@@ -27,7 +27,7 @@ def main():
 
     # 处理数据
     df = dp.solve_data(movie_df, ratings_df, tags_df)
-    print(df)
+    # df.to_excel("create_data/df_data.xlsx", index=False)
 
 
 if __name__ == "__main__":
