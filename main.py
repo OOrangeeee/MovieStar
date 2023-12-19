@@ -1,9 +1,13 @@
 import read as r
 import data_process as dp
 import soluation as s
+import matplotlib
 
 
 def main():
+    # 设置字体：
+    matplotlib.rcParams["font.family"] = "SimHei"  # 例如使用 "SimHei" 字体
+
     # 输入四个文件的路径
     # file_m=input()
     # file_r=input()
@@ -21,7 +25,7 @@ def main():
 
     # 处理数据
     df = dp.solve_data(movie_df, ratings_df, tags_df)
-    s.solve_ncf(df, 5, 32, 50, 0.1, 108)
+    s.solve_ncf(df, 32, 50, 0.1, 0.001)
 
 
 if __name__ == "__main__":

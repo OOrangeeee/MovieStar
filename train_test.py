@@ -40,14 +40,14 @@ def train_test(df, test_size, random_state):
     x_train, y_train = features_target(df_train)
     x_test, y_test = features_target(df_test)
 
-    for i in range(len(x_train)):
-        filename = "create_data/x_train_" + str(i) + ".csv"
-        np.savetxt(filename, x_train[i], delimiter=",")
-    np.savetxt("create_data/y_train.csv", y_train, delimiter=",")
-    for i in range(len(x_test)):
-        filename = "create_data/x_test_" + str(i) + ".csv"
-        np.savetxt(filename, x_test[i], delimiter=",")
-    np.savetxt("create_data/y_test.csv", y_test, delimiter=",")
+    # for i in range(len(x_train)):
+    #     filename = "create_data/x_train_" + str(i) + ".csv"
+    #     np.savetxt(filename, x_train[i], delimiter=",")
+    # np.savetxt("create_data/y_train.csv", y_train, delimiter=",")
+    # for i in range(len(x_test)):
+    #     filename = "create_data/x_test_" + str(i) + ".csv"
+    #     np.savetxt(filename, x_test[i], delimiter=",")
+    # np.savetxt("create_data/y_test.csv", y_test, delimiter=",")
 
     return x_train, x_test, y_train, y_test
 

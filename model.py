@@ -1,5 +1,5 @@
 from Accuracy import CustomAccuracy
-
+from loss import rmse_loss
 
 # NCF
 
@@ -13,7 +13,7 @@ from tensorflow.keras.layers import (
     Dropout,
 )
 from tensorflow.keras.optimizers import Adam
-from tensorflow.keras.regularizers import l1_l2
+from keras.regularizers import l1_l2
 
 
 class NCFModel:
@@ -22,7 +22,13 @@ class NCFModel:
     """
 
     def __init__(
-        self, movie_id_max, user_id_max, tag_max, genres_dim, embedding_size=50
+        self,
+        movie_id_max,
+        user_id_max,
+        tag_max,
+        genres_dim,
+        embedding_size=50,
+        learning_rate=0.01,
     ):
         """
         NCF模型构造函数
@@ -31,12 +37,14 @@ class NCFModel:
         :param tag_max: 标签的最大值
         :param genres_dim: 特征列数量
         :param embedding_size: 训练维度数量，越大效果越好但是容易过拟合
+        :param learning_rate: 学习率
         """
         self.movie_id_max = movie_id_max
         self.user_id_max = user_id_max
         self.tag_max = tag_max
         self.genres_dim = genres_dim
         self.embedding_size = embedding_size
+        self.learning_rate = learning_rate
         self.model = self._create_model()
 
     def _create_model(self):
@@ -85,7 +93,7 @@ class NCFModel:
         mlp = Dense(128, activation="relu")(concat)
         mlp = Dropout(0.5)(mlp)
         mlp = Dense(64, activation="relu")(mlp)
-        mlp = Dropout(0.5)(mlp)
+        mlp = Dropout(0.1)(mlp)
         # mlp = Dense(32, activation="relu")(mlp)
         # mlp = Dropout(0.3)(mlp)
 
@@ -103,8 +111,9 @@ class NCFModel:
             outputs=rating_prediction,
         )
         model.compile(
-            optimizer=Adam(learning_rate=0.001),
-            loss="mean_squared_error",
+            optimizer=Adam(learning_rate=self.learning_rate),
+            # loss="mean_squared_error",
+            loss=rmse_loss,
             metrics=[CustomAccuracy()],
         )
         return model
