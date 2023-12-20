@@ -1,15 +1,13 @@
-import torch  # pytorch框架
-import pandas as pd  # 数据集读入库
-import matplotlib.pyplot as plt  # 绘制图表
-import torch.nn as nn  # 模型中的网络层使用
-from torch import optim  # 优化器使用
-from torch.utils.data import DataLoader, TensorDataset  # 数据集处理
-from sklearn.model_selection import train_test_split  # 数据划分
 import read as r
 import data_process as dp
+import soluation as s
+import matplotlib
 
 
 def main():
+    # 设置字体：
+    matplotlib.rcParams["font.family"] = "SimHei"  # 例如使用 "SimHei" 字体
+
     # 输入四个文件的路径
     # file_m=input()
     # file_r=input()
@@ -27,7 +25,7 @@ def main():
 
     # 处理数据
     df = dp.solve_data(movie_df, ratings_df, tags_df)
-    # df.to_excel("create_data/df_data.xlsx", index=False)
+    s.solve_ncf(df, 32, 50, 0.1, 0.00095)
 
 
 if __name__ == "__main__":
