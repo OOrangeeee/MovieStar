@@ -37,7 +37,7 @@ def solve_ncf(
         embedding_size,
         learn_rate,
     )
-    epochs = 5
+    epochs = 50
     train(df, test_size, 108, batch_size, ncf, epochs, 1)
     train(df, test_size, 568, batch_size, ncf, epochs, 2)
     train(df, test_size, 782, batch_size, ncf, epochs, 3)

@@ -25,7 +25,7 @@ def main():
 
     # 处理数据
     df = dp.solve_data(movie_df, ratings_df, tags_df)
-    s.solve_ncf(df, 32, 50, 0.1, 0.001)
+    s.solve_ncf(df, 32, 50, 0.1, 0.00095)
 
 
 if __name__ == "__main__":
