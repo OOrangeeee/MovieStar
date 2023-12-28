@@ -88,7 +88,7 @@ def train(df, test_size, random_state, batch_size, model_ncf, epochs, num=1):
         file_epoch_accuracies = [str(i) for i in callback.epoch_accuracies]
         file_epoch_losses = [str(i) for i in callback.epoch_losses]
 
-        file.write("训练集" + str(num) + "的最大准确值：")
+        file.write("训练集" + str(num) + "的最大准确率：")
         file.write(",".join(file_max_custom_accuracy))
         file.write("\n")
         file.write("训练集准确率" + str(num) + "的平均值：")
@@ -111,7 +111,7 @@ def train(df, test_size, random_state, batch_size, model_ncf, epochs, num=1):
         file.write("测试集" + str(num) + "的准确率：")
         file.write(" , ".join(file_epoch_accuracies))
         file.write("\n")
-        file.write("训练集损失" + str(num) + "的平均值：")
+        file.write("测试集准确率" + str(num) + "的平均值：")
         file.write(str(sum(callback.epoch_accuracies) / len(callback.epoch_accuracies)))
         file.write("\n")
 
@@ -120,7 +120,7 @@ def train(df, test_size, random_state, batch_size, model_ncf, epochs, num=1):
         file.write("测试集" + str(num) + "的损失：")
         file.write(" , ".join(file_epoch_losses))
         file.write("\n")
-        file.write("训练集损失" + str(num) + "的平均值：")
+        file.write("测试集损失" + str(num) + "的平均值：")
         file.write(str(sum(callback.epoch_losses) / len(callback.epoch_losses)))
         file.write("\n")
 
