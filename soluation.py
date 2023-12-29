@@ -1,3 +1,8 @@
+# 最后编辑：
+# 晋晨曦 2023.12.19 23:40
+# qq：2950171570
+# email：Jin0714@outlook.com  回复随缘
+
 import model as m
 import train_test as tt
 from call_back import CustomCallback
