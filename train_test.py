@@ -1,3 +1,8 @@
+# 最后编辑：
+# 晋晨曦 2023.12.19 14:44
+# qq：2950171570
+# email：Jin0714@outlook.com  回复随缘
+
 from sklearn.model_selection import train_test_split
 import numpy as np
 

@@ -1,3 +1,8 @@
+# 最后编辑：
+# 晋晨曦 2023.12.19 23:38
+# qq：2950171570
+# email：Jin0714@outlook.com  回复随缘
+
 import read as r
 import data_process as dp
 import soluation as s
