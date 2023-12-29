@@ -15,7 +15,7 @@ def round_half_int(x):
     return round(x * 2) / 2
 
 
-def compute_accuracy(predictions, targets, threshold=0.5):
+def compute_accuracy(predictions, targets, threshold=0.49):
     # param predictions: 预测值
     # param targets: 真实值
     # param threshold: 判定为正确预测的阈值

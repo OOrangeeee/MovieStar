@@ -159,3 +159,7 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 /create_data/~$df_data.xlsx
+/test/links.csv
+/test/movies.csv
+/test/ratings.csv
+/test/tags.csv
